@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quatity,: MyString
+  active: 
+  list_id: 
+  item_id: 1
+
+two:
+  quatity,: MyString
+  active: 
+  list_id: 
+  item_id: 1
