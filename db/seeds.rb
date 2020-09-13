@@ -1,7 +1,7 @@
 
 @user = User.create(email: "abe@gmail.com")
 
-# CATERGORIES:
+# CATEGORIES:
 @user.categories.create(name: 'Produce', sort_order: 1)
 @user.categories.create(name: 'Meat', sort_order: 2)
 @user.categories.create(name: 'Dairy', sort_order: 3)
@@ -11,8 +11,10 @@
 # LISTS
 # @user.lists.create(name: 'HEB')
 @list = @user.lists.create(name: 'HEB')
+@list2 = @user.lists.create(name: 'Oxo')
 
 # ITEMS
+
 
 @user.items.create(name: 'apples', category_id: 1)
 @user.items.create(name: 'pears', category_id: 1)
@@ -41,3 +43,10 @@
 @list.list_items.create(item_id: 9, quantity: '4', active: true)
 @list.list_items.create(item_id: 11, quantity: '1 quart', active: true)
 @list.list_items.create(item_id: 14, quantity: '1 box', active: true)
+
+
+@list2.list_items.create(item_id: 1, quantity: '6')
+@list2.list_items.create(item_id: 4, quantity: '4 ears')
+@list2.list_items.create(item_id: 10, quantity: '1 lb.')
+@list2.list_items.create(item_id: 11, quantity: '16 oz.')
+@list2.list_items.create(item_id: 13, quantity: '1')
