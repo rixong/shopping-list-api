@@ -32,8 +32,8 @@
 
 # ADD ITEMS TO LIST
 
-@list.list_items.create(item_id: 2, quantity: '6', active: true)
-@list.list_items.create(item_id: 3, quantity: '1 quart', active: true)
+@list.list_items.create(item_id: 2, quantity: '6')
+@list.list_items.create(item_id: 3, quantity: '1 quart')
 @list.list_items.create(item_id: 5, quantity: '1 head', active: true)
 @list.list_items.create(item_id: 6, quantity: '1 lb.', active: true)
 @list.list_items.create(item_id: 7, quantity: '1/2 lb.', active: true)
