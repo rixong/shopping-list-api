@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'lists/current/:id', to: 'lists#current'
 
       post 'items/', to: 'items#create'
+      delete 'items/:id', to: 'items#delete'
 
       patch 'list_items/:id', to: 'list_items#edit'
       post 'list_items/', to: 'list_items#create'

@@ -11,7 +11,13 @@ class Api::V1::UsersController < ApplicationController
     cur_list_items = cur_list.list_items
     categories = user.categories
     items = user.items
-    render json: {user: user, curList: cur_list, items: items, curListItems: cur_list_items, categories: categories}
+    render json: {
+      user: user, 
+      curList: cur_list, 
+      items: items, 
+      curListItems: cur_list_items, 
+      categories: categories
+    }
   end
 
 end
