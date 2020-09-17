@@ -1,7 +1,8 @@
 class Api::V1::ItemsController < ApplicationController
 
   def create
-    check_item = Item.where("user_id=? AND name=?", params[:user_id], params[:name])[0]
+    # check_item = Item.where("user_id=? AND name=?", items_params[:user_id], items_params[:name])
+    check_item = Item.find_by(user_id:items_params[:user_id], name: items_params[:name])
     if check_item
       render json: {item: check_item, message: 'Item already exists!', status: 'exists'}
     else
