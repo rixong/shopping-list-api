@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       patch 'list_items/:id', to: 'list_items#edit'
       post 'list_items/', to: 'list_items#create'
 
+      post 'categories/', to: 'categories#edit'
 
     end
   end
