@@ -1,5 +1,28 @@
 class Api::V1::UsersController < ApplicationController
 
+  # skip_before_action :authorized, only: [:create]
+
+  def profile
+    # user = User.find_by(id: params[:id])
+    render json: {message: 'hello'}
+  end
+
+  def create
+# byebug
+    user = User.create(
+      email: params[:email], 
+      password: params[:password], 
+      password_confirmation: params[:password_confirmation]
+    )
+    # user.save
+    if user.valid?
+      render json: user
+    else
+      render json: {status: 'error', message: user.errors.messages}
+    end
+
+  end
+  
   def index
     users = User.all
     render json: users
@@ -19,5 +42,13 @@ class Api::V1::UsersController < ApplicationController
       categories: categories
     }
   end
+
+  private
+
+    # def user_params
+    #   params.require(:user).permit(
+    #     :email
+    #   )
+    # end
 
 end
