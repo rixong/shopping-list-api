@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX}
 
-  attr_accessor :password
+  # attr_accessor :password
  
   def authenticate(plaintext_password)
     if BCrypt::Password.new(self.password_digest) == plaintext_password

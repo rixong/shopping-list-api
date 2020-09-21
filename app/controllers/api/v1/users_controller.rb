@@ -7,7 +7,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    user = User.create(user_params)
+    # byebug
     if user.valid?
       token = encode_token({user_id: user.id})
       render json: { user: UserSerializer.new(user), jwt: token, status: 'ok' }
@@ -40,7 +41,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
     def user_params
-      params.permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
 end
