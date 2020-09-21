@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       post 'users/', to: 'users#create'
       get 'profile/', to: 'users#profile'
 
-      post 'login/', to: 'auth#login'
+      post 'login/', to: 'auth#create'
 
       get 'lists/', to: 'lists#index'
       get 'lists/:id', to: 'lists#show'

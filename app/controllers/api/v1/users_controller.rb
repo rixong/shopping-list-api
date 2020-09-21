@@ -1,22 +1,16 @@
 class Api::V1::UsersController < ApplicationController
 
-  # skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
 
   def profile
-    # user = User.find_by(id: params[:id])
-    render json: {message: 'hello'}
+    render json: {user: UserSerializer.new(current_user), status: 'ok'}
   end
 
   def create
-# byebug
-    user = User.create(
-      email: params[:email], 
-      password: params[:password], 
-      password_confirmation: params[:password_confirmation]
-    )
-    # user.save
+    user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
     if user.valid?
-      render json: user
+      token = encode_token({user_id: user.id})
+      render json: { user: UserSerializer.new(user), jwt: token, status: 'ok' }
     else
       render json: {status: 'error', message: user.errors.messages}
     end
@@ -45,10 +39,8 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-    # def user_params
-    #   params.require(:user).permit(
-    #     :email
-    #   )
-    # end
+    def user_params
+      params.permit(:email, :password, :password_confirmation)
+    end
 
 end
