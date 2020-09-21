@@ -1,5 +1,5 @@
 
-@user = User.create(email: "abe@gmail.com")
+@user = User.create(email: "abe@gmail.com", password: "1234", password_confirmation: "1234")
 
 # CATEGORIES:
 @user.categories.create(name: 'Produce', sort_order: 1)
