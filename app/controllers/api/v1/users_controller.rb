@@ -3,7 +3,11 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create, :index]
 
   def profile
-    render json: {user: UserSerializer.new(current_user), status: 'ok'}
+    if current_user
+      render json: {user: UserSerializer.new(current_user), status: 'ok'}
+    else
+      render json: {status: 'error', message: 'problem'}
+    end
   end
 
   def create
@@ -15,7 +19,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: {status: 'error', message: user.errors.messages}
     end
-
   end
   
   def index
@@ -23,25 +26,25 @@ class Api::V1::UsersController < ApplicationController
     render json: users
   end
 
-  def show
-    user = User.find(params[:id])
-    cur_list = user.lists.order(created_at: :desc).limit(1)[0]
-    cur_list_items = cur_list.list_items
-    categories = user.categories
-    items = user.items
-    render json: {
-      user: user, 
-      curList: cur_list, 
-      items: items, 
-      curListItems: cur_list_items, 
-      categories: categories
-    }
-  end
+  # def show
+  #   user = User.find(params[:id])
+  #   cur_list = user.lists.order(created_at: :desc).limit(1)[0]
+  #   cur_list_items = cur_list.list_items
+  #   categories = user.categories
+  #   items = user.items
+  #   render json: {
+  #     user: user, 
+  #     curList: cur_list, 
+  #     items: items, 
+  #     curListItems: cur_list_items, 
+  #     categories: categories
+  #   }
+  # end
 
   private
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.permit(:email, :password, :password_confirmation)
     end
 
 end

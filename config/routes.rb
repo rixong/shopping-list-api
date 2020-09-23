@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       post 'list_items/', to: 'list_items#create'
 
       post 'categories/', to: 'categories#edit'
+      get 'categories/', to: 'categories#index'
 
     end
   end
