@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
       get 'users/', to: 'users#index'
       get 'users/:id', to: 'users#show'
+      patch 'users/', to: 'users#edit'
       post 'users/', to: 'users#create'
       get 'profile/', to: 'users#profile'
 
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
 
       get 'lists/', to: 'lists#index'
       get 'lists/:id', to: 'lists#show'
+      post 'lists/', to: 'lists#create'
+      delete 'lists/:id', to: 'lists#delete'
       get 'lists/current/:id', to: 'lists#current'
 
       post 'items/', to: 'items#create'

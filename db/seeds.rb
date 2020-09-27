@@ -1,5 +1,5 @@
 
-@user = User.create(email: "abe@gmail.com", password: "1234", password_confirmation: "1234")
+@user = User.create(email: "abe@gmail.com", current_list: 1, password: "1234", password_confirmation: "1234")
 
 # CATEGORIES:
 @user.categories.create(name: 'Produce', sort_order: 1)
@@ -15,10 +15,24 @@
 @user.categories.create(name: 'Cans and Jars', sort_order: 11)
 @user.categories.create(name: 'Deli', sort_order: 12)
 
+# categories = [
+# 'Produce'
+# 'Meat'
+# 'Dairy'
+# 'Bakery'
+# 'Baking Supplies'
+# 'Frozen Foods'
+# 'Condiments'
+# 'Beverages & Snacks'
+# 'Household Items'
+# 'Pet Supplies'
+# 'Cans and Jars'
+# 'Deli']
+
 # LISTS
 # @user.lists.create(name: 'HEB')
 @list = @user.lists.create(name: 'HEB')
-# @list2 = @user.lists.create(name: 'Oxo')
+@list2 = @user.lists.create(name: 'Target')
 
 # ITEMS
 
@@ -47,3 +61,7 @@
 @list.list_items.create(item_id: 10, quantity: '1 gallon')
 @list.list_items.create(item_id: 11, quantity: '6 pack')
 @list.list_items.create(item_id: 12, quantity: '1')
+
+@list2.list_items.create(item_id: 10, quantity: '1 gallon')
+@list2.list_items.create(item_id: 11, quantity: '6 pack')
+@list2.list_items.create(item_id: 12, quantity: '1')

@@ -1,7 +1,8 @@
 class Api::V1::CategoriesController < ApplicationController
+  skip_before_action :authorized, only: [:edit]
 
 def index
-  current_user.
+
 end
 
 def edit

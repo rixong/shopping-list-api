@@ -1,4 +1,5 @@
 class Api::V1::ItemsController < ApplicationController
+  skip_before_action :authorized, only: [:create, :delete]
 
   def create
     # check_item = Item.where("user_id=? AND name=?", items_params[:user_id], items_params[:name])

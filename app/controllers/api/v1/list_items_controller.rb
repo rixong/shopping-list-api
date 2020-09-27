@@ -1,5 +1,7 @@
 class Api::V1::ListItemsController < ApplicationController
 
+  skip_before_action :authorized, only: [:create, :edit]
+
   def create
     if ListItem.where("list_id=? AND item_id=?", params[:list_id], params[:item_id])[0]
       render json: {message: 'Item already exists!', status: 'exists'}
