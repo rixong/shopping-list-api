@@ -57,7 +57,8 @@ class Api::V1::UsersController < ApplicationController
         {name: 'Cans and Jars', sort_order: 10, user_id: id, created_at: Time.now, updated_at: Time.now },
         {name: 'Deli', sort_order: 11, user_id: id, created_at: Time.now, updated_at: Time.now },
         {name: 'Alcohol', sort_order: 12, user_id: id, created_at: Time.now, updated_at: Time.now },
-        {name: 'Pharmacy', sort_order: 13, user_id: id, created_at: Time.now, updated_at: Time.now }
+        {name: 'Pharmacy', sort_order: 13, user_id: id, created_at: Time.now, updated_at: Time.now },
+        {name: 'Dry Goods', sort_order: 14, user_id: id, created_at: Time.now, updated_at: Time.now }
       ])
     end
 
