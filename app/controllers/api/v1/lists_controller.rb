@@ -1,6 +1,6 @@
 class Api::V1::ListsController < ApplicationController
 
-  skip_before_action :authorized, only: [:current, :delete]
+  skip_before_action :authorized, only: [:current]
 
   def create
     list = List.create(name: list_params[:name], user_id: current_user.id)
