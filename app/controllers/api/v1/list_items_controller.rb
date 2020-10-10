@@ -4,7 +4,7 @@ class Api::V1::ListItemsController < ApplicationController
 
   def create
     if ListItem.where("list_id=? AND item_id=?", params[:list_id], params[:item_id])[0]
-      render json: {message: 'Item already exists!', status: 'exists'}
+      render json: {message: 'This item is already on your list.', status: 'exists'}
     else
       list_item = ListItem.create(item_params)
       render json: {listItem: ListItemSerializer.new(list_item), message:'done', status: 'ok'}

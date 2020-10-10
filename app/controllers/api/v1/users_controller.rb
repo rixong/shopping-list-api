@@ -4,6 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
 
   def profile
+# sleep 3
     if current_user
       render json: {user: UserSerializer.new(current_user), status: 'ok'}
     else
@@ -12,6 +13,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    # sleep 3
     user = User.create(user_params)
   
     if user.valid?
