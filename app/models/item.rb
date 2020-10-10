@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   has_many :lists, through: :list_items
   belongs_to :category
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 end
